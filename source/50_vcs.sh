@@ -78,3 +78,6 @@ if [[ "$OSTYPE" =~ ^darwin ]]; then
     alias gd='gdk'
   fi
 fi
+
+# Open source tree
+alias stree="open -a SourceTree";
