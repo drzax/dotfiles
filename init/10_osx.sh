@@ -27,6 +27,7 @@ if [[ "$(type -P brew)" ]]; then
     tree sl id3tool cowsay
     lesspipe nmap
     htop-osx man2html
+    wget
   )
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"
