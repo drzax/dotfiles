@@ -28,6 +28,7 @@ if [[ "$(type -P brew)" ]]; then
     lesspipe nmap
     htop-osx man2html
     wget
+    curl-ca-bundle
   )
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"
