@@ -14,6 +14,10 @@ eval "$(lesspipe.sh)"
 # Start ScreenSaver. This will lock the screen if locking is enabled.
 alias ss="open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
 
+# Make using todo.sh a little easier
+export TODOTXT_DEFAULT_ACTION=ls
+alias t="todo.sh"
+
 # Create a new Parallels VM from template, replacing the existing one.
 function vm_template() {
   local name="$@"

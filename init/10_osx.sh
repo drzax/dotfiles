@@ -29,6 +29,7 @@ if [[ "$(type -P brew)" ]]; then
     htop-osx man2html
     wget
     curl-ca-bundle
+    todo-txt
   )
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"
