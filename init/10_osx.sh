@@ -30,6 +30,7 @@ if [[ "$(type -P brew)" ]]; then
     wget
     curl-ca-bundle
     todo-txt
+    python
   )
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"
