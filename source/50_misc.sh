@@ -19,3 +19,15 @@ function titlebar() {
 if [[ -e ~/.ssh/known_hosts ]]; then
   complete -o default -W "$(cat ~/.ssh/known_hosts | sed 's/[, ].*//' | sort | uniq | grep -v '[0-9]')" ssh scp sftp
 fi
+
+
+# From: https://gist.github.com/namuol/9122237
+function fuck() {
+  killall -9 $2;
+  if [ $? == 0 ]
+  then
+    echo
+    echo " (╯°□°）╯︵$(echo $2|flip &2>/dev/null)"
+    echo
+  fi
+}
