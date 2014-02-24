@@ -11,7 +11,7 @@ fi
 # Install Homebrew.
 if [[ ! "$(type -P brew)" ]]; then
   e_header "Installing Homebrew"
-  true | ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+  true | ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 fi
 
 if [[ "$(type -P brew)" ]]; then
@@ -31,6 +31,7 @@ if [[ "$(type -P brew)" ]]; then
     curl-ca-bundle
     todo-txt
     ssh-copy-id
+    python
   )
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"

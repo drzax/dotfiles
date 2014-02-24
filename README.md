@@ -2,16 +2,7 @@
 
 My OS X / Ubuntu dotfiles.
 
-## Why is this a git repo?
-
-I've been using bash on-and-off for a long time (since Slackware Linux was distributed on 1.44MB floppy disks). In all that time, every time I've set up a new Linux or OS X machine, I've copied over my `.bashrc` file and my `~/bin` folder to each machine manually. And I've never done a very good job of actually maintaining these files. It's been a total mess.
-
-I finally decided that I wanted to be able to execute a single command to "bootstrap" a new system to pull down all of my dotfiles and configs, as well as install all the tools I commonly use. In addition, I wanted to be able to re-execute that command at any time to synchronize anything that might have changed. Finally, I wanted to make it easy to re-integrate changes back in, so that other machines could be updated.
-
-That command is [dotfiles][dotfiles], and this is my "dotfiles" Git repo.
-
-[dotfiles]: bin/dotfiles
-[bin]: https://github.com/cowboy/dotfiles/tree/master/bin
+This is a fork of [Ben Alman's dotfiles](https://github.com/cowboy/dotfiles). with minor modifications for my personal preferences.
 
 ## What, exactly, does the "dotfiles" command do?
 
@@ -35,7 +26,7 @@ Note:
 ### OS X Notes
 
 * You need to be an administrator (for `sudo`).
-* You need to have installed [XCode](https://developer.apple.com/downloads/index.action?=xcode) or, at the very minimum, the [XCode Command Line Tools](https://developer.apple.com/downloads/index.action?=command%20line%20tools), which are available as a _much smaller_ download thank XCode.
+* You need to have installed [XCode](https://developer.apple.com/downloads/index.action?=xcode) or, at the very minimum, the [XCode Command Line Tools](https://developer.apple.com/downloads/index.action?=command%20line%20tools), which are available as a _much smaller_ download than XCode.
 
 ### Ubuntu Notes
 
@@ -46,13 +37,7 @@ Note:
 ### Actual Installation
 
 ```sh
-bash -c "$(curl -fsSL https://bit.ly/cowboy-dotfiles)" && source ~/.bashrc
-```
-
-If, for some reason, [bit.ly](https://bit.ly/) is down, you can use the canonical URL.
-
-```sh
-bash -c "$(curl -fsSL https://raw.github.com/cowboy/dotfiles/master/bin/dotfiles)" && source ~/.bashrc
+bash -c "$(curl -fsSL https://raw.github.com/drzax/dotfiles/master/bin/dotfiles)" && source ~/.bashrc
 ```
 
 ## The "init" step
@@ -72,7 +57,10 @@ A whole bunch of things will be installed, but _only_ if they aren't already.
   * hub
   * cowsay
   * ssh-copy-id
-  * apple-gcc42 (via [homebrew-dupes](https://github.com/Homebrew/homebrew-dupes/blob/master/apple-gcc42.rb))
+  * apple-gcc42 (via [homebrew-dupes](https://github.com/Homebrew/homebrew-dupes/blob/master/apple-gcc42.rb)
+  * todo-txt
+  * python
+  )
 
 ### Ubuntu
 * APT packages
