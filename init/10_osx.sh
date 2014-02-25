@@ -18,6 +18,7 @@ if [[ "$(type -P brew)" ]]; then
   e_header "Updating Homebrew"
   brew doctor
   brew update
+  brew tap phinze/homebrew-cask
 
   # Install Homebrew recipes.
   recipes=(
@@ -31,6 +32,7 @@ if [[ "$(type -P brew)" ]]; then
     curl-ca-bundle
     todo-txt
     python
+    brew-cask
   )
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"
@@ -65,4 +67,17 @@ if [[ "$(type -P brew)" ]]; then
     e_header "Installing Homebrew dupe recipe: apple-gcc42"
     brew install https://raw.github.com/Homebrew/homebrew-dupes/master/apple-gcc42.rb
   fi
+
+  # Install Homebrew Casks.
+  casks=(
+    qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
+    quicklook-csv betterzipql webp-quicklook suspicious-package
+  )
+
+  list="$(to_install "${casks[*]}" "$(brew cask list)")"
+  if [[ "$list" ]]; then
+    e_header "Installing Homebrew Cask recipes: $list"
+    brew cask install $list
+  fi
+
 fi
