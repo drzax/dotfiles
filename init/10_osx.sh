@@ -81,3 +81,8 @@ if [[ "$(type -P brew)" ]]; then
   fi
 
 fi
+
+# virtualenv
+pip install virtualenv
+pip install virtualenvwrapper
+
