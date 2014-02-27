@@ -15,10 +15,23 @@ if [[ ! "$(type -P brew)" ]]; then
 fi
 
 if [[ "$(type -P brew)" ]]; then
+  # Tap some kegs
+  taps=(
+    phinze/cask
+    homebrew/science
+  )
+
+  list="$(to_install "${taps[*]}" "$(brew tap)")"
+  if [[ "$list" ]]; then
+    e_header "Tapping Homebrew kegs: $list"
+    for tap in $list; do
+      brew tap $tap
+    done
+  fi
+
   e_header "Updating Homebrew"
   brew doctor
   brew update
-  brew tap phinze/homebrew-cask
 
   # Install Homebrew recipes.
   recipes=(
