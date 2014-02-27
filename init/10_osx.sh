@@ -19,6 +19,7 @@ if [[ "$(type -P brew)" ]]; then
   taps=(
     phinze/cask
     homebrew/science
+    caskroom/fonts
   )
 
   list="$(to_install "${taps[*]}" "$(brew tap)")"
@@ -85,6 +86,7 @@ if [[ "$(type -P brew)" ]]; then
   casks=(
     qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
     quicklook-csv betterzipql webp-quicklook suspicious-package
+    font-anonymous-pro
   )
 
   list="$(to_install "${casks[*]}" "$(brew cask list)")"
