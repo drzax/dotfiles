@@ -115,3 +115,10 @@ for pkg in $list; do
   syspip install $pkg
 done
 
+# Package control for Sublime Text
+SUBL_PACKAGES=~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
+if [[ ! -f $SUBL_PACKAGES/Package\ Control.sublime-package ]]; then
+   e_header "Installing Package Controller for Sublime Text";
+   mkdir -p $SUBL_PACKAGES
+   curl https://sublime.wbond.net/Package%20Control.sublime-package -o "$SUBL_PACKAGES/Package Control.sublime-package"
+fi
