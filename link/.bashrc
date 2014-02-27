@@ -19,10 +19,4 @@ function dotfiles() {
   ~/.dotfiles/bin/dotfiles "$@" && src
 }
 
-# Provide access to sys pip
-# See: http://hackercodex.com/guide/python-development-environment-on-mac-osx/
-syspip(){
-   PIP_REQUIRE_VIRTUALENV="" pip "$@"
-}
-
 src
