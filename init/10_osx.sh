@@ -45,7 +45,6 @@ if [[ "$(type -P brew)" ]]; then
     wget
     curl-ca-bundle
     todo-txt
-    ssh-copy-id
     python
     brew-cask
   )
