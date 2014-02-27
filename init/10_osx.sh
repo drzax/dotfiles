@@ -15,6 +15,21 @@ if [[ ! "$(type -P brew)" ]]; then
 fi
 
 if [[ "$(type -P brew)" ]]; then
+  # Tap some kegs
+  taps=(
+    phinze/cask
+    homebrew/science
+    caskroom/fonts
+  )
+
+  list="$(to_install "${taps[*]}" "$(brew tap)")"
+  if [[ "$list" ]]; then
+    e_header "Tapping Homebrew kegs: $list"
+    for tap in $list; do
+      brew tap $tap
+    done
+  fi
+
   e_header "Updating Homebrew"
   brew doctor
   brew update
@@ -23,7 +38,7 @@ if [[ "$(type -P brew)" ]]; then
   recipes=(
     bash
     ssh-copy-id
-    git git-extras hub
+    git git-extras hub gist
     tree sl id3tool cowsay
     lesspipe nmap
     htop-osx man2html
@@ -32,6 +47,7 @@ if [[ "$(type -P brew)" ]]; then
     todo-txt
     ssh-copy-id
     python
+    brew-cask
   )
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"
@@ -66,4 +82,44 @@ if [[ "$(type -P brew)" ]]; then
     e_header "Installing Homebrew dupe recipe: apple-gcc42"
     brew install https://raw.github.com/Homebrew/homebrew-dupes/master/apple-gcc42.rb
   fi
+
+  # Install Homebrew Casks.
+  casks=(
+    qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
+    quicklook-csv betterzipql webp-quicklook suspicious-package
+    font-anonymous-pro
+  )
+
+  list="$(to_install "${casks[*]}" "$(brew cask list)")"
+  if [[ "$list" ]]; then
+    e_header "Installing Homebrew Cask recipes: $list"
+    brew cask install $list
+  fi
+
+fi
+
+# Install system python packages
+packages=(
+  virtualenvwrapper
+)
+
+# This removes the version numbers from the `pip list` command output so it can be used as input for install.
+function remove_versions() {
+  local list out
+  list=($1)
+  out=(${list[@]//(*})
+  echo "${out[@]}"
+}
+current=$(remove_versions "$(syspip list)")
+list="$(to_install "${packages[*]}" "${current[*]}")"
+for pkg in $list; do
+  syspip install $pkg
+done
+
+# Package control for Sublime Text
+SUBL_PACKAGES=~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
+if [[ ! -f $SUBL_PACKAGES/Package\ Control.sublime-package ]]; then
+   e_header "Installing Package Controller for Sublime Text";
+   mkdir -p $SUBL_PACKAGES
+   curl https://sublime.wbond.net/Package%20Control.sublime-package -o "$SUBL_PACKAGES/Package Control.sublime-package"
 fi

@@ -18,6 +18,20 @@ alias ss="open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resou
 export TODOTXT_DEFAULT_ACTION=ls
 alias t="todo.sh"
 
+# Python & virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+if [[ ! -d $WORKON_HOME ]]; then
+  mkdir $WORKON_HOME
+fi
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=true
+if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+else
+    echo "WARNING: Can't find virtualenvwrapper.sh"
+fi
+
 # Create a new Parallels VM from template, replacing the existing one.
 function vm_template() {
   local name="$@"
