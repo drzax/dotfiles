@@ -40,6 +40,15 @@ function md() {
   mkdir -p "$@" && cd "$@"
 }
 
+# Recursively delete directories of a specific name (i.e. .svn directories)
+rdd() {
+	if [ $# -eq 0 ]
+		then echo "Directory name must be supplied."
+		return 1
+	fi
+	find . -type d -name $1 -exec rm -rf {} \;
+}
+
 # Fast directory switching
 _Z_NO_PROMPT_COMMAND=1
 _Z_DATA=~/.dotfiles/caches/.z
