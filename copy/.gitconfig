@@ -1,6 +1,6 @@
 [user]
   name = Simon Elvery
-  email = EMAIL
+  email = (none)
 [core]
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
