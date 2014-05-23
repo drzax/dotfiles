@@ -89,6 +89,7 @@ if [[ "$(type -P brew)" ]]; then
     quicklook-csv betterzipql webp-quicklook suspicious-package
     font-anonymous-pro
     rdio
+    r rstudio
   )
 
   list="$(to_install "${casks[*]}" "$(brew cask list)")"
