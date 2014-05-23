@@ -20,6 +20,7 @@ if [[ "$(type -P brew)" ]]; then
     phinze/cask
     homebrew/science
     caskroom/fonts
+    caskroom/cask
   )
 
   list="$(to_install "${taps[*]}" "$(brew tap)")"
