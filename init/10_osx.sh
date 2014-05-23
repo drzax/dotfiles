@@ -88,6 +88,7 @@ if [[ "$(type -P brew)" ]]; then
     qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
     quicklook-csv betterzipql webp-quicklook suspicious-package
     font-anonymous-pro
+    rdio
   )
 
   list="$(to_install "${casks[*]}" "$(brew cask list)")"
