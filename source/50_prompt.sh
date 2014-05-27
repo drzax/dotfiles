@@ -137,7 +137,7 @@ function prompt_command() {
   PS1="$PS1$c1[$c0$(date +"%H$c1:$c0%M$c1:$c0%S")$c1]$c9"
   # exit code: 127
   PS1="$PS1$(prompt_exitcode "$exit_code")"
-  PS1="$PS1 \$ "
+  PS1="$PS1 ⚡  "
 }
 
 PROMPT_COMMAND="prompt_command"
