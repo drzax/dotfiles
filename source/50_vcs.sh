@@ -81,3 +81,40 @@ fi
 
 # Open source tree
 alias stree="open -a SourceTree";
+
+# Open the repo page on a bitbucket or github hosted remote
+function hosted() {
+  local repo branch host user branch_path remote get_remote
+
+  if (( "${#@}" > 1 )); then
+    echo -e "Usage: hosted [remote]\n\tremote defaults to 'origin'"
+    return 1
+  fi
+
+  remote=$1
+  [[ $remote ]] || remote='origin'
+
+  get_remote="$(gr show -n $remote 2>/dev/null)"
+
+  repo=$(echo $get_remote | perl -ne '/Fetch URL: .*(bitbucket\.org|github\.com)[:\/].*\/(.*)\.git/ && print $2')
+  host=$(echo $get_remote | perl -ne '/Fetch URL: .*(bitbucket\.org|github\.com)[:\/].*\/(.*)\.git/ && print $1')
+  branch="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
+  user=$(echo $get_remote | perl -ne '/Fetch URL: .*(bitbucket\.org|github\.com)[:\/](.*)\/(.*)\.git/ && print $2')
+
+  if [[ ! $repo ]]; then
+    echo "Git remote '$remote' not found. Available remotes: "
+    gr
+    return 1
+  fi
+
+  branch_path="tree"
+  if [[ $host == 'bitbucket.org' ]]; then
+    branch_path='branch'
+  fi
+
+  if [[ $branch == 'master' ]]; then
+    open "https://$host/$user/$repo"
+  else
+    open "https://$host/$user/$repo/$branch_path/$branch"
+  fi
+}
