@@ -56,3 +56,5 @@ if [[ "$(type -P gem)" ]]; then
   fi
 fi
 
+# Get or update all the grunt-init templates
+clone_or_pull https://github.com/drzax/grunt-init-app.git ~/.grunt-init/quick-start
