@@ -123,6 +123,22 @@ function do_stuff() {
   done
 }
 
+# Clone some stuff
+function clone_or_pull() {
+
+  if [[ ! -d $2 ]]; then
+    # doesn't exist? Clone it!
+    e_header "Downloading $1"
+    git clone --recursive $1 $2
+  else
+    # Make sure we have the latest files.
+    e_header "Updating $1"
+    cd $2
+    git pull
+    git submodule update --init --recursive --quiet
+  fi
+}
+
 # Enough with the functions, let's do stuff.
 
 # Ensure that we can actually, like, compile anything.
