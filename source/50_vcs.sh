@@ -19,6 +19,7 @@ alias gba='git branch -a'
 function gc() { git checkout "${@:-master}"; } # Checkout master by default
 alias gco='gc'
 alias gcb='gc -b'
+alias gbc='gc -b' # Dyslexia
 alias gr='git remote'
 alias grv='gr -v'
 #alias gra='git remote add'
@@ -53,17 +54,30 @@ function gra() {
   gr add "$1" "git://github.com/$1/$repo"
 }
 
-# git log with per-commit cmd-clickable GitHub URLs (iTerm)
-function gf() {
-  local remote="$(git remote -v | awk '/^origin.*\(push\)$/ {print $2}')"
+# GitHub URL for current repo.
+function gurl() {
+  local remotename="${@:-origin}"
+  local remote="$(git remote -v | awk '/^'"$remotename"'.*\(push\)$/ {print $2}')"
   [[ "$remote" ]] || return
   local user_repo="$(echo "$remote" | perl -pe 's/.*://;s/\.git$//')"
+  echo "https://github.com/$user_repo"
+}
+
+# git log with per-commit cmd-clickable GitHub URLs (iTerm)
+function gf() {
   git log $* --name-status --color | awk "$(cat <<AWK
     /^.*commit [0-9a-f]{40}/ {sha=substr(\$2,1,7)}
-    /^[MA]\t/ {printf "%s\thttps://github.com/$user_repo/blob/%s/%s\n", \$1, sha, \$2; next}
+    /^[MA]\t/ {printf "%s\t$(gurl)/blob/%s/%s\n", \$1, sha, \$2; next}
     /.*/ {print \$0}
 AWK
   )" | less -F
+}
+
+# open last commit in GitHub, in the browser.
+function gfu() {
+  local n="${@:-1}"
+  n=$((n-1))
+  open $(git log -n 1 --skip=$n --pretty=oneline | awk "{printf \"$(gurl)/commit/%s\", substr(\$1,1,7)}")
 }
 
 # Just the last few commits, please!
@@ -73,7 +87,7 @@ for n in {1..5}; do alias gf$n="gf -n $n"; done
 if [[ "$OSTYPE" =~ ^darwin ]]; then
   alias gdk='git ksdiff'
   alias gdkc='gdk --cached'
-  alias gt='gittower -s'
+  alias gt='gittower -s; gittower -s'
   if [[ ! "$SSH_TTY" ]]; then
     alias gd='gdk'
   fi
