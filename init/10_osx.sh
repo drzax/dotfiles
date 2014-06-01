@@ -17,7 +17,6 @@ fi
 if [[ "$(type -P brew)" ]]; then
   # Tap some kegs
   taps=(
-    phinze/cask
     homebrew/science
     caskroom/fonts
     caskroom/cask
@@ -34,6 +33,32 @@ if [[ "$(type -P brew)" ]]; then
   e_header "Updating Homebrew"
   brew doctor
   brew update
+  brew upgrade
+  brew cleanup
+
+  # brew-cask is needed first for xQuartz dependency of r
+  recipee=(brew-cask)
+  list="$(to_install "${recipes[*]}" "$(brew list)")"
+  if [[ "$list" ]]; then
+    e_header "Installing Homebrew recipes: $list"
+    brew install $list
+  fi 
+
+  # Install Homebrew Casks.
+  casks=(
+    qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
+    quicklook-csv betterzipql webp-quicklook suspicious-package
+    font-anonymous-pro
+    rdio
+    rstudio
+    xquartz
+  )
+
+  list="$(to_install "${casks[*]}" "$(brew cask list)")"
+  if [[ "$list" ]]; then
+    e_header "Installing Homebrew Cask recipes: $list"
+    brew cask install $list
+  fi
 
   # Install Homebrew recipes.
   recipes=(
@@ -47,7 +72,7 @@ if [[ "$(type -P brew)" ]]; then
     curl-ca-bundle
     todo-txt
     python
-    brew-cask
+    r
   )
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"
@@ -81,21 +106,6 @@ if [[ "$(type -P brew)" ]]; then
   if [[ ! "$(type -P gcc-4.2)" ]]; then
     e_header "Installing Homebrew dupe recipe: apple-gcc42"
     brew install https://raw.github.com/Homebrew/homebrew-dupes/master/apple-gcc42.rb
-  fi
-
-  # Install Homebrew Casks.
-  casks=(
-    qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
-    quicklook-csv betterzipql webp-quicklook suspicious-package
-    font-anonymous-pro
-    rdio
-    r rstudio
-  )
-
-  list="$(to_install "${casks[*]}" "$(brew cask list)")"
-  if [[ "$list" ]]; then
-    e_header "Installing Homebrew Cask recipes: $list"
-    brew cask install $list
   fi
 
 fi
