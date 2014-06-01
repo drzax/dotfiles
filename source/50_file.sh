@@ -46,7 +46,7 @@ rdd() {
 		then echo "Directory name must be supplied."
 		return 1
 	fi
-	find . -type d -name $1 -exec rm -rf {} \;
+	find . -type d -name $1 -exec trash {} \;
 }
 
 # Fast directory switching
