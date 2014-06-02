@@ -59,3 +59,5 @@
   insteadOf = "heroku:"
 [help]
   autocorrect = 10
+[push]
+	default = simple
