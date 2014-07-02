@@ -51,7 +51,9 @@ if [[ "$(type -P brew)" ]]; then
     font-anonymous-pro
     rdio
     rstudio
-    xquartz
+    xquartz,
+    tilemill,
+    filezilla
   )
 
   list="$(to_install "${casks[*]}" "$(brew cask list)")"
