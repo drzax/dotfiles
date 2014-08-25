@@ -55,6 +55,7 @@ if [[ "$(type -P brew)" ]]; then
     tilemill
     filezilla
     licecap
+    mailbox
   )
 
   list="$(to_install "${casks[*]}" "$(brew cask list)")"
