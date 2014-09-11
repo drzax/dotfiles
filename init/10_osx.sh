@@ -56,6 +56,7 @@ if [[ "$(type -P brew)" ]]; then
     filezilla
     licecap
     mailbox
+    jumpcut
   )
 
   list="$(to_install "${casks[*]}" "$(brew cask list)")"
