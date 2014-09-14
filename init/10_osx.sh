@@ -52,6 +52,7 @@ if [[ "$(type -P brew)" ]]; then
     rdio
     rstudio
     xquartz
+    sketchup
     tilemill
     filezilla
     licecap
