@@ -78,6 +78,7 @@ if [[ "$(type -P brew)" ]]; then
     todo-txt
     python
     r
+    pngcrush
   )
 
   list="$(to_install "${recipes[*]}" "$(brew list)")"
