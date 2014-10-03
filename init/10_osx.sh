@@ -58,6 +58,7 @@ if [[ "$(type -P brew)" ]]; then
     licecap
     mailbox
     jumpcut
+    cloudup
   )
 
   list="$(to_install "${casks[*]}" "$(brew cask list)")"
