@@ -59,7 +59,6 @@ if [[ "$(type -P brew)" ]]; then
     mailbox
     jumpcut
     cloudup
-    dash
   )
 
   list="$(to_install "${casks[*]}" "$(brew cask list)")"
