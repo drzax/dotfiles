@@ -3,7 +3,7 @@
 
 alias g='git'
 function ga() { git add "${@:-.}"; } # Add all files by default
-alias gp='git push'
+alias gp='pushToOrigin'
 alias gpa='gp --all'
 alias gu='git pull'
 alias gl='git log'
@@ -26,6 +26,12 @@ alias grv='gr -v'
 alias grr='git remote rm'
 alias gcl='git clone'
 alias gcd='git rev-parse 2>/dev/null && cd "./$(git rev-parse --show-cdup)"'
+
+pushToOrigin(){
+  BRANCH=`git rev-parse --symbolic-full-name --abbrev-ref HEAD`;
+  echo "git push origin $BRANCH";
+  git push origin $BRANCH;
+}
 
 # Run commands in each subdirectory.
 alias gu-all='eachdir git pull'
