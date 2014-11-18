@@ -27,6 +27,10 @@ alias grr='git remote rm'
 alias gcl='git clone'
 alias gcd='git rev-parse 2>/dev/null && cd "./$(git rev-parse --show-cdup)"'
 
+# set user quickly
+alias gcu='git config user.email simon@elvery.net'
+alias gcuabc='git config user.email elvery.simon@abc.net.au'
+
 pushToOrigin(){
   BRANCH=`git rev-parse --symbolic-full-name --abbrev-ref HEAD`;
   echo "git push origin $BRANCH";
