@@ -46,8 +46,8 @@ if [[ "$(type -P brew)" ]]; then
 
   # Install Homebrew Casks.
   casks=(
-    qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
-    quicklook-csv betterzipql webp-quicklook suspicious-package
+    qlcolorcode qlmarkdown quicklook-json qlprettypatch 
+    quicklook-csv betterzipql webp-quicklook 
     font-anonymous-pro
     rdio
     rstudio
