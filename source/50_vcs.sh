@@ -120,10 +120,10 @@ function hosted() {
 
   get_remote="$(gr show -n $remote 2>/dev/null)"
 
-  repo=$(echo $get_remote | perl -ne '/Fetch URL: .*(bitbucket\.org|github\.com)[:\/].*\/(.*)\.git/ && print $2')
-  host=$(echo $get_remote | perl -ne '/Fetch URL: .*(bitbucket\.org|github\.com)[:\/].*\/(.*)\.git/ && print $1')
+  repo=$(echo $get_remote | perl -ne '/Fetch URL: .*(bitbucket\.org|github\.com|stash.abc-dev.net.au)[:\/0-9]+.*\/(.*)\.git/ && print $2')
+  host=$(echo $get_remote | perl -ne '/Fetch URL: .*(bitbucket\.org|github\.com|stash.abc-dev.net.au)[:\/0-9]+.*\/(.*)\.git/ && print $1')
   branch="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
-  user=$(echo $get_remote | perl -ne '/Fetch URL: .*(bitbucket\.org|github\.com)[:\/](.*)\/(.*)\.git/ && print $2')
+  user=$(echo $get_remote | perl -ne '/Fetch URL: .*(bitbucket\.org|github\.com|stash.abc-dev.net.au)[:\/0-9]+(.*)\/(.*)\.git/ && print $2')
 
   if [[ ! $repo ]]; then
     echo "Git remote '$remote' not found. Available remotes: "
@@ -131,14 +131,20 @@ function hosted() {
     return 1
   fi
 
-  branch_path="tree"
+  branch_path="tree/"
   if [[ $host == 'bitbucket.org' ]]; then
-    branch_path='branch'
+    branch_path='branch/'
+  fi
+
+  if [[ $host == 'stash.abc-dev.net.au' ]]; then
+    user="projects/$user/repos"
+    branch_path='browse?at=refs%2Fheads%2F'
+    # open "https://$host/projects/$user/repos/$repo/browse?at=refs%2Fheads%2F$branch"
   fi
 
   if [[ $branch == 'master' ]]; then
     open "https://$host/$user/$repo"
   else
-    open "https://$host/$user/$repo/$branch_path/$branch"
+    open "https://$host/$user/$repo/$branch_path$branch"
   fi
 }
