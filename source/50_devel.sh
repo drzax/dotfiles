@@ -103,8 +103,8 @@ if [[ "$(type -P rbenv)" && ! "$(type -t _rbenv)" ]]; then
   eval "$(rbenv init -)"
 fi
 
-# iphone simulator shortcut
-alias phone='open -a "iOS Simulator"'
+# iOS simulator shortcut
+alias ios='open -a "iOS Simulator"'
 
 # crush a whole directory
 function pngcrushdir() {
