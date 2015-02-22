@@ -19,12 +19,12 @@ recipes=(
   id3tool
   lesspipe
   man2html
-  mercurial
   nmap
   sl
   ssh-copy-id
   terminal-notifier
   tree
+  the_silver_searcher
 )
 
 brew_install_recipes

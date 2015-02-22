@@ -1,10 +1,8 @@
 # OSX-only stuff. Abort if not OSX.
 is_osx || return 1
 
-# Install system python packages
-packages=(
-  virtualenvwrapper
-)
+# Load python-related functions.
+source $DOTFILES/source/20_python.sh
 
 # This removes the version numbers from the `pip list` command output so it can be used as input for install.
 function remove_versions() {
@@ -13,8 +11,23 @@ function remove_versions() {
   out=(${list[@]//(*})
   echo "${out[@]}"
 }
-current=$(remove_versions "$(syspip list)")
-list="$(to_install "${packages[*]}" "${current[*]}")"
-for pkg in $list; do
-  syspip install $pkg
-done
+
+# Install Python packages
+function python_install_packages() {
+  local current
+  current=$(remove_versions "$(syspip list)")
+  packages=($(setdiff "${packages[*]}" "${current[*]}"))
+  if (( ${#packages[@]} > 0 )); then
+    e_header "Installing Python packages: ${packages[*]}"
+    for package in "${packages[@]}"; do
+      syspip install $package
+    done
+  fi
+}
+
+# Install system python packages
+packages=(
+  virtualenvwrapper
+)
+
+python_install_packages

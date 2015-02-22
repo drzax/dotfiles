@@ -30,7 +30,3 @@ function fuck() {
     echo
   fi
 }
-
-# Disable ansible cows }:]
-export ANSIBLE_NOCOWS=1
-
