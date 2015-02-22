@@ -3,7 +3,7 @@
 # Based on Mathias Bynens ~/.osx dotfile - http://mths.be/osx
 
 # OSX-only stuff. Abort if not OSX.
-[[ "$OSTYPE" =~ ^darwin ]] || return 1
+is_osx || return 1
 
 e_header "Running modified ~/.osx (see http://mths.be/osx)"
 
