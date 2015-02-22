@@ -37,7 +37,7 @@ if [[ "$(type -P brew)" ]]; then
   brew cleanup
 
   # brew-cask is needed first for xQuartz dependency of r
-  recipee=(brew-cask)
+  recipes=(brew-cask)
   list="$(to_install "${recipes[*]}" "$(brew list)")"
   if [[ "$list" ]]; then
     e_header "Installing Homebrew recipes: $list"
