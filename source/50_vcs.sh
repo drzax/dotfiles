@@ -127,10 +127,12 @@ if is_osx; then
 fi
 
 # Open source tree
-alias stree="open -a SourceTree";
+alias st="open -a SourceTree";
 
-# Open the repo page on a bitbucket or github hosted remote
-function hosted() {
+
+# Open this repository / branch on a hosted remote (default to origin)
+function or() {
+
   local repo branch host user branch_path remote get_remote
 
   if (( "${#@}" > 1 )); then
