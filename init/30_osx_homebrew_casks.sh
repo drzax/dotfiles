@@ -29,7 +29,6 @@ casks=(
   chromium
   dropbox
   firefox
-  google-chrome
   gyazo
   istat-menus
   iterm2
