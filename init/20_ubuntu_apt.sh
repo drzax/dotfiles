@@ -46,7 +46,6 @@ packages=(
   htop
   id3tool
   libssl-dev
-  mercurial
   nmap
   silversearcher-ag
   sl
