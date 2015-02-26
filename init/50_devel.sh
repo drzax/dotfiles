@@ -10,6 +10,13 @@ clone_or_pull git@bitbucket.org:abcdevelop/news-proxyless-util.git ~/proxyless
 packages=(
   linter
   merge-conflicts
+  duplicate-and-comment
+  editor-stats
+  emmet
+  fold-comments
+  highlight-selected
+  jsdoc
+  todo-show
 )
 
 # This removes the version numbers from the output of `apm list --installed --bare`

@@ -24,6 +24,7 @@ brew cask info this-is-somewhat-annoying 2>/dev/null
 # Homebrew casks
 casks=(
   # Applications
+  atom
   a-better-finder-rename
   charles
   chromium
