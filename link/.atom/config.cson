@@ -1,11 +1,11 @@
 "*":
   editor:
-    fontSize: 13
+    fontSize: 12
     invisibles: {}
   core:
     themes: [
       "atom-dark-ui"
-      "atom-dark-syntax"
+      "solarized-dark-syntax"
     ]
   "exception-reporting":
     userId: "9519119b-1b9f-5d2a-8ba5-38875a6db863"
