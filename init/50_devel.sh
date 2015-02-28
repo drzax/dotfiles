@@ -1,8 +1,8 @@
 # Get or update all the grunt-init templates
-clone_or_pull git@bitbucket.org:abcdevelop/news-template-interactive-gruntinit.git ~/.grunt-init/abc-interactive
+clone_or_pull ssh://git@ssh.stash.abc-dev.net.au:7999/news/template-interactive-gruntinit.git ~/.grunt-init/abc-interactive
 
 # ABC Proxyless
-clone_or_pull git@bitbucket.org:abcdevelop/news-proxyless-util.git ~/proxyless
+clone_or_pull ssh://git@ssh.stash.abc-dev.net.au:7999/news/news-proxyless-util.git ~/proxyless
 
 # Exit if Atom is not installed.
 [[ ! "$(type -P apm)" ]] && e_error "Atom packages need Atom (and apm) to install." && return 1
