@@ -127,8 +127,17 @@ if is_osx; then
 fi
 
 # Open source tree
-alias st="open -a SourceTree";
-
+function st() {
+  if [[ ! $1 ]]; then
+    if [ -d .git ]; then
+      open -a SourceTree .
+    else
+      open -a SourceTree
+    fi
+  else
+    open -a SourceTree $1
+  fi
+}
 
 # Open this repository / branch on a hosted remote (default to origin)
 function or() {
