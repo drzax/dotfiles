@@ -17,6 +17,7 @@ packages=(
   highlight-selected
   jsdoc
   todo-show
+  editorconfig
 )
 
 # This removes the version numbers from the output of `apm list --installed --bare`

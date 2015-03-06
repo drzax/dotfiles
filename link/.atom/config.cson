@@ -1,12 +1,15 @@
 "*":
   editor:
-    fontSize: 12
     invisibles: {}
+    showInvisibles: true
+    softTabs: false
+    fontSize: 13
   core:
     themes: [
       "atom-dark-ui"
       "solarized-dark-syntax"
     ]
+    followSymlinks: true
   "exception-reporting":
     userId: "9519119b-1b9f-5d2a-8ba5-38875a6db863"
   welcome:
