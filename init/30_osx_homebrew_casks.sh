@@ -33,6 +33,7 @@ casks=(
   gyazo
   istat-menus
   iterm2
+  sourcetree
   omnidisksweeper
   the-unarchiver
   vagrant
