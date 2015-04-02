@@ -7,13 +7,13 @@ is_osx || return 1
 
 e_header "Running modified ~/.osx (see http://mths.be/osx)"
 
-# How to find defaults: 
-# 
+# How to find defaults:
+#
 #     $ defaults read > a
 #     $ # Make the change in Prefs
 #     $ defaults read > b
 #     $ diff --context=5 a b
-# 
+#
 # More context might be required if that doesn't show the domain.
 
 ###############################################################################
@@ -200,6 +200,9 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 ###############################################################################
 # Finder                                                                      #
 ###############################################################################
+
+# Don't show desktop icons
+defaults write com.apple.finder CreateDesktop -bool false
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
