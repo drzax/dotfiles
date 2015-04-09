@@ -25,7 +25,7 @@ function nave_install() {
 }
 
 # Global npm modules to install.
-npm_globals=(grunt-cli grunt-init linken bower node-inspector yo forever mocha tldr trash karma-cli)
+npm_globals=(grunt-cli grunt-init uglify-js linken bower node-inspector yo forever mocha tldr trash karma-cli)
 
 # Update npm and install global modules.
 function npm_install() {

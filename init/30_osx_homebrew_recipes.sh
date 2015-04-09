@@ -25,6 +25,7 @@ recipes=(
   terminal-notifier
   tree
   the_silver_searcher
+  colordiff
 )
 
 brew_install_recipes

@@ -69,6 +69,14 @@ function gra() {
   gr add "$1" "git://github.com/$1/$repo"
 }
 
+# nicer diff
+alias diff='colordiff'
+
+# diff for uglified js
+function bdiff() {
+  colordiff <(cat $1 | uglifyjs -b) <(cat $2 | uglifyjs -b)
+}
+
 # GitHub URL for current repo.
 function gurl() {
   local remotename="${@:-origin}"
