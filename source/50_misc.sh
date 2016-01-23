@@ -34,3 +34,5 @@ function fuck() {
 function pngdatauri() {
   echo "data:image/png;base64,$(pngcrush $1 /dev/stdout | base64)" | pbcopy
 }
+
+alias prx='~/proxyless/proxyless-command'

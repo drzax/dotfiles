@@ -122,5 +122,3 @@ function pngcrushdir() {
     mv -f temp.png $png
   done;
 }
-
-alias prx='~/proxyless/proxyless-command'
