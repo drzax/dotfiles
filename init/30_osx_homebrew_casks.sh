@@ -18,31 +18,32 @@ brew cask info this-is-somewhat-annoying 2>/dev/null
 # Homebrew casks
 casks=(
   # Applications
+  1password
   atom
   a-better-finder-rename
   charles
   chromium
+  cloudup
   dropbox
+  filezilla
   firefox
   gyazo
   istat-menus
   iterm2
-  sourcetree
+  jumpcut
+  licecap
   omnidisksweeper
+  rstudio
+  sketchup
+  slack
+  sourcetree
+  spotify
+  tilemill
   the-unarchiver
   vagrant
   virtualbox
   vlc
-  rdio
-  rstudio
   xquartz
-  sketchup
-  tilemill
-  filezilla
-  licecap
-  mailbox
-  jumpcut
-  cloudup
   # Quick Look plugins
   betterzipql
   qlcolorcode
@@ -51,7 +52,7 @@ casks=(
   quicklook-csv
   quicklook-json
   quicknfo
-  webp-quicklook
+  webpquicklook
   # Color pickers
   colorpicker-developer
   colorpicker-skalacolor
