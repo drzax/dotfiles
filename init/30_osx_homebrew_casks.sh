@@ -9,14 +9,8 @@ kegs=(
   caskroom/cask
   homebrew/science
   caskroom/fonts
-  caskroom/cask
 )
 brew_tap_kegs
-recipes=(brew-cask)
-brew_install_recipes
-
-# Exit if, for some reason, cask is not installed.
-[[ ! "$(brew ls --versions brew-cask)" ]] && e_error "Brew-cask failed to install." && return 1
 
 # Hack to show the first-run brew-cask password prompt immediately.
 brew cask info this-is-somewhat-annoying 2>/dev/null
