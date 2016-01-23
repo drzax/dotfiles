@@ -15,7 +15,6 @@ packages=(
   emmet
   fold-comments
   highlight-selected
-  jsdoc
   todo-show
   editorconfig
 )
