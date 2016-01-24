@@ -8,15 +8,16 @@ clone_or_pull ssh://git@ssh.stash.abc-dev.net.au:7999/news/news-proxyless-util.g
 [[ ! "$(type -P apm)" ]] && e_error "Atom packages need Atom (and apm) to install." && return 1
 
 packages=(
-  linter
-  merge-conflicts
   duplicate-and-comment
   editor-stats
+  editorconfig
   emmet
   fold-comments
   highlight-selected
+  linter
+  merge-conflicts
+  sync-settings
   todo-show
-  editorconfig
 )
 
 # This removes the version numbers from the output of `apm list --installed --bare`
