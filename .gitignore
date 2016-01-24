@@ -15,13 +15,9 @@
 /link/.rbenv/versions/
 /link/.rbenv/version
 
-# Don't commit atom dependencies / plugins apm will install them
+# Don't commit Atom things
+# APM will install plugins/etc and sync-settings will do the rest.
 /link/.atom/*
-!/link/.atom/config.cson
-!/link/.atom/init.coffee
-!/link/.atom/keymap.cson
-!/link/.atom/snippets.cson
-!/link/.atom/styles.less
 
 # Ignore any file with LOCAL in the name (good for per-machine vars/functions)
 *LOCAL*
