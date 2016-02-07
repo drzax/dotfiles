@@ -36,3 +36,17 @@ function pngdatauri() {
 }
 
 alias prx='~/proxyless/proxyless-command'
+
+
+# iOS simulator shortcut
+alias ios='open -a "iOS Simulator"'
+
+# crush a whole directory
+function pngcrushdir() {
+  for png in `find $1 -name "*.png"`;
+  do
+    echo "crushing $png"
+    pngcrush -brute "$png" temp.png
+    mv -f temp.png $png
+  done;
+}
