@@ -11,6 +11,7 @@ recipes=(
   todo-txt
   r
   pngcrush
+  autoenv
   bash
   git
   git-extras

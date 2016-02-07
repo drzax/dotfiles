@@ -32,6 +32,7 @@ casks=(
   iterm2
   jumpcut
   licecap
+  miniconda
   omnidisksweeper
   rstudio
   sketchup
