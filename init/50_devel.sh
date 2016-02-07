@@ -14,6 +14,7 @@ packages=(
   emmet
   fold-comments
   highlight-selected
+  hydrogen
   linter
   merge-conflicts
   sync-settings
