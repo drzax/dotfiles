@@ -6,13 +6,10 @@ is_osx || return 1
 
 # Homebrew recipes
 recipes=(
-  gist
-  wget
-  todo-txt
-  r
-  pngcrush
   autoenv
   bash
+  colordiff
+  gist
   git
   git-extras
   htop-osx
@@ -20,13 +17,20 @@ recipes=(
   id3tool
   lesspipe
   man2html
+  ngrok
   nmap
+  pkg-config
+  pngcrush
+  r
   sl
   ssh-copy-id
   terminal-notifier
-  tree
   the_silver_searcher
-  colordiff
+  todo-txt
+  trash
+  tree
+  wget
+  zeromq
 )
 
 brew_install_recipes
