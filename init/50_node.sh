@@ -2,4 +2,4 @@
 source $DOTFILES/source/50_node.sh
 
 # Install latest  Node.js, set as default, install global npm modules.
-nave_install latest
+nave_install stable
