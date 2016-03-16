@@ -28,8 +28,15 @@ cenv() {
 
   # TODO: This currently assumes the environment is already created.
 
+  if [[ ! $1 ]]; then
+    echo "Specify a conda environment"
+    conda env list
+    return 1
+  fi
+
   # Setup for autoenv
   echo "source activate $1" >> .env
+  source activate "$1"
   git ignore .env
 
   # Export the environment
