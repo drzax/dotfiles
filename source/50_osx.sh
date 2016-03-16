@@ -17,6 +17,8 @@ alias ss="open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resou
 # Make using todo.sh a little easier
 export TODOTXT_DEFAULT_ACTION=ls
 alias t="todo.sh"
+alias ta="t a"
+alias td="t do"
 
 # Python & virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
