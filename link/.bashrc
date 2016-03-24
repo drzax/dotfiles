@@ -23,3 +23,6 @@ function dotfiles() {
 }
 
 src
+
+
+. /Users/elverys7d/torch/install/bin/torch-activate
