@@ -1,3 +1,8 @@
+# scmpuff https://mroth.github.io/scmpuff/
+# This is before dotfiles sources so that source/50_vcs.sh can still override
+# some git commands
+eval "$(scmpuff init -s)"
+
 if [ -f ~/.bashrc ]; then
   source ~/.bashrc
 fi

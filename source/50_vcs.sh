@@ -2,7 +2,8 @@
 # Git shortcuts
 
 alias g='git'
-function ga() { git add "${@:-.}"; git status; } # Add all files by default
+unalias ga > /dev/null 2>&1
+function ga() { echo "$(git add "${@:-.}")"; } # Add all files by default
 alias gp='pushToOrigin'
 alias gpa='gp --all'
 alias gu='git pull'
@@ -10,7 +11,7 @@ alias gl='git log'
 alias gfe='git fetch -p'
 # alias gfep='git fetch -p'
 alias gg='gl --decorate --oneline --graph --date-order --all'
-alias gs='git status'
+# alias gs='git status'
 alias gd='git diff'
 alias gdc='gd --cached'
 alias gm='git commit -m'
