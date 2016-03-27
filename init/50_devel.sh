@@ -26,7 +26,7 @@ function remove_versions() {
   local list out
   list=($1)
   out=(${list[@]//@*})
-  echo "${out[@]}"
+  echo "${out[@]}" | tr '[:upper:]' '[:lower:]'
 }
 
 # Install Atom packages.
@@ -43,3 +43,6 @@ function apm_install_packages() {
 }
 
 apm_install_packages
+
+e_header "Updating Atom modules"
+apm upgrade --no-confirm
