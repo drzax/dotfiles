@@ -14,6 +14,13 @@ e_header "Running modified ~/.osx (see http://mths.be/osx)"
 #     $ defaults read > b
 #     $ diff --context=5 a b
 #
+# Or in .plist files
+#
+#     $ plutil -p ~/Library/Preferences/com.googlecode.iterm2.plist > a
+#     $ # Make the change in Prefs
+#     $ plutil -p ~/Library/Preferences/com.googlecode.iterm2.plist > b
+#     $ diff --context=5 a b
+#
 # More context might be required if that doesn't show the domain.
 
 ###############################################################################
@@ -521,7 +528,12 @@ defaults write com.apple.terminal StringEncodings -array 4
 #open "${HOME}/init/Mathias.itermcolors"
 
 # Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+/usr/libexec/PlistBuddy -c 'Set :PromptOnQuit false' ~/Library/Preferences/com.googlecode.iterm2.plist
+/usr/libexec/PlistBuddy -c 'Set :FocusFollowsMouse false' ~/Library/Preferences/com.googlecode.iterm2.plist
+/usr/libexec/PlistBuddy -c 'Set :QuitWhenAllWindowsClosed true' ~/Library/Preferences/com.googlecode.iterm2.plist
+/usr/libexec/PlistBuddy -c 'Set :TripleClickSelectsFullWrappedLines true' ~/Library/Preferences/com.googlecode.iterm2.plist
+/usr/libexec/PlistBuddy -c 'Set :OnlyWhenMoreTabs false' ~/Library/Preferences/com.googlecode.iterm2.plist
+/usr/libexec/PlistBuddy -c 'Set :"New Bookmarks":0:"Unlimited Scrollback" true' ~/Library/Preferences/com.googlecode.iterm2.plist
 
 ###############################################################################
 # Time Machine                                                                #
