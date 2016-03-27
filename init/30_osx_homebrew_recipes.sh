@@ -22,6 +22,7 @@ recipes=(
   pkg-config
   pngcrush
   r
+  scmpuff
   sl
   ssh-copy-id
   terminal-notifier

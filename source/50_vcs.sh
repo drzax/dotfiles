@@ -1,6 +1,7 @@
+# Make sure scmpuff exists
+eval "$(scmpuff init -s)"
 
 # Git shortcuts
-
 alias g='git'
 unalias ga > /dev/null 2>&1
 function ga() { echo "$(git add "${@:-.}")"; } # Add all files by default
