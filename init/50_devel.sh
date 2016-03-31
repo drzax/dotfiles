@@ -8,10 +8,11 @@ clone_or_pull ssh://git@ssh.stash.abc-dev.net.au:7999/news/news-proxyless-util.g
 [[ ! "$(type -P apm)" ]] && e_error "Atom packages need Atom (and apm) to install." && return 1
 
 packages=(
-  duplicate-and-comment
+  atom-fuzzy-grep
   editor-stats
   editorconfig
   emmet
+  environment
   fold-comments
   highlight-selected
   hydrogen
