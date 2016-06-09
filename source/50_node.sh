@@ -106,3 +106,13 @@ function npm_latest() {
     echo -e '\nAll dependencies are @latest version.'
   fi
 }
+
+# Force npm to rewrite package.json to sort everything in the default order
+function npm-package() {
+  if [[ "$(cat package.json | grep dependencies)" ]]; then
+    npm install foo --save && npm uninstall foo --save
+  fi
+  if [[ "$(cat package.json | grep devDependencies)" ]]; then
+    npm install foo --save-dev && npm uninstall foo --save-dev
+  fi
+}
