@@ -38,20 +38,22 @@ venv(){
 }
 
 # Quick Anaconda environment
-cenv() {
+# Inspired by some things:
+# - https://github.com/tdhopper/dotfiles/blob/f319aca85d034488d2a37f43e2ee7c49c057cef6/bash_functions#L119-L139
+# - http://stiglerdiet.com/blog/2015/Nov/24/my-python-environment-workflow-with-conda/
+function cenv {
 
-  # TODO: This currently assumes the environment is already created.
+  local envname=$1
 
-  if [[ ! $1 ]]; then
-    echo "Specify a conda environment"
-    conda env list
-    return 1
+  if [[ ! $envname ]]; then
+    echo "Defaulting to current directory for environment name"
+    envname=$(basename $PWD);
   fi
 
   # Setup for autoenv
-  echo "source activate $1" >> .env
-  source activate "$1"
-  git ignore .env
+  echo "source activate $envname" >> .env
+  source activate "$envname"
+  if git status &> /dev/null; then git ignore .env; fi
 
   # Export the environment
   conda env export > environment.yml
