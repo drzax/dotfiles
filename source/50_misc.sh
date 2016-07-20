@@ -50,3 +50,8 @@ function pngcrushdir() {
     mv -f temp.png $png
   done;
 }
+
+# Alias some docker commands
+alias dkc=docker-compose
+alias dkm=docker-machine
+function dkmuse() { eval $(dkm env "${@:-default}"); } # Checkout master by default
