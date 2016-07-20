@@ -28,6 +28,7 @@ casks=(
   filezilla
   firefox
   gyazo
+  hermes
   iterm2
   jumpcut
   licecap
@@ -35,6 +36,7 @@ casks=(
   omnidisksweeper
   rstudio
   sketchup
+  skype
   slack
   sourcetree
   spotify
