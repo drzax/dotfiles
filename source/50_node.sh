@@ -24,22 +24,6 @@ function nave_install() {
   [[ "$1" == "stable" ]] && nave_default stable && npm_install
 }
 
-# Global npm modules to install.
-npm_globals=(
-  bower
-  forever
-  grunt-cli
-  grunt-init
-  karma-cli
-  linken
-  mocha
-  node-inspector
-  tldr
-  trash
-  uglify-js
-  yo
-)
-
 # Update npm and install global modules.
 function npm_install() {
   local installed modules

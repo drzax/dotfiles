@@ -19,20 +19,6 @@ alias t="todo.sh -@ -+"
 alias ta="t a"
 alias td="t do"
 
-# Python & virtualenvwrapper
-export WORKON_HOME=~/.virtualenvs
-if [[ ! -d $WORKON_HOME ]]; then
-  mkdir $WORKON_HOME
-fi
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-export PIP_RESPECT_VIRTUALENV=true
-export PIP_REQUIRE_VIRTUALENV=true
-if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-else
-    echo "WARNING: Can't find virtualenvwrapper.sh"
-fi
-
 # Export Localization.prefPane text substitution rules.
 function txt_sub_backup() {
   local prefs=~/Library/Preferences/.GlobalPreferences.plist

@@ -7,6 +7,20 @@ syspip(){
 # Enable pyenv shims and autocompletion
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# Python & virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+if [[ ! -d $WORKON_HOME ]]; then
+  mkdir $WORKON_HOME
+fi
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+export PIP_REQUIRE_VIRTUALENV=true
+if [[ -r /usr/local/bin/virtualenvwrapper.sh ]]; then
+  source /usr/local/bin/virtualenvwrapper.sh
+else
+  echo "WARNING: Can't find virtualenvwrapper.sh"
+fi
+
 # Quick virtual environments
 venv(){
   # Create
