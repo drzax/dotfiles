@@ -12,6 +12,7 @@ recipes=(
   gist
   git
   git-extras
+  git-lfs
   htop-osx
   hub
   id3tool
