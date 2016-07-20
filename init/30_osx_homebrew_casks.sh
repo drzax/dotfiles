@@ -18,6 +18,7 @@ brew cask info this-is-somewhat-annoying 2>/dev/null
 # Homebrew casks
 casks=(
   # Applications
+  1password
   atom
   a-better-finder-rename
   charles
@@ -27,7 +28,6 @@ casks=(
   filezilla
   firefox
   gyazo
-  istat-menus
   iterm2
   jumpcut
   licecap
