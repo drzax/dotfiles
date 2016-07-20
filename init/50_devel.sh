@@ -4,6 +4,11 @@ clone_or_pull ssh://git@ssh.stash.abc-dev.net.au:7999/news/template-interactive-
 # ABC Proxyless
 clone_or_pull ssh://git@ssh.stash.abc-dev.net.au:7999/news/news-proxyless-util.git ~/proxyless
 
+# Make sure conda hasn't stolen access to system python.
+# See: http://stackoverflow.com/a/30043745
+# The hydrogen package for Atom needs python 2.7 to build.
+rm ~/miniconda3/bin/python
+
 # Exit if Atom is not installed.
 [[ ! "$(type -P apm)" ]] && e_error "Atom packages need Atom (and apm) to install." && return 1
 
