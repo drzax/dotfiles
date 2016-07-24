@@ -28,6 +28,7 @@ casks=(
   filezilla
   firefox
   gyazo
+  hazel
   hermes
   iterm2
   jumpcut
