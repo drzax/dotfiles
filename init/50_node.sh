@@ -7,6 +7,7 @@ npm_globals=(
   forever
   grunt-cli
   grunt-init
+  hexo-cli
   karma-cli
   linken
   mocha
