@@ -27,7 +27,6 @@ casks=(
   dropbox
   filezilla
   firefox
-  gyazo
   hazel
   hermes
   iterm2
