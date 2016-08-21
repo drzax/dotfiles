@@ -35,6 +35,10 @@ function pngdatauri() {
   echo "data:image/png;base64,$(pngcrush $1 /dev/stdout | base64)" | pbcopy
 }
 
+function svgdatauri() {
+  echo "data:image/svg+xml;base64,$(svgo -o - -i $1 | base64)" | pbcopy
+}
+
 alias prx='~/proxyless/proxyless-command'
 
 
