@@ -18,6 +18,7 @@ alias ss="open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resou
 alias t="todo.sh -@ -+"
 alias ta="t a"
 alias td="t do"
+alias tq="q ~/Dropbox/todo/todo.txt"
 
 # Export Localization.prefPane text substitution rules.
 function txt_sub_backup() {
