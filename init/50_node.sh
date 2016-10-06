@@ -9,6 +9,7 @@ npm_globals=(
   grunt-init
   hexo-cli
   karma-cli
+  licensor
   linken
   mocha
   node-inspector
