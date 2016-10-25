@@ -1,6 +1,5 @@
 [user]
   name = Simon Elvery
-  email = (none)
 	signingkey = 1765C943BF0C1580
 [core]
   autocrlf = input
