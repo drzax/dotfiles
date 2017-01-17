@@ -15,7 +15,7 @@ alias c="tr -d '\n' | pbcopy"
 alias ss="open /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
 
 # Make using todo.sh a little easier
-alias t="todo.sh -@ -+"
+alias t="todo.sh -@"
 alias ta="t a"
 alias td="t do"
 alias tq="q ~/Dropbox/todo/todo.txt"
