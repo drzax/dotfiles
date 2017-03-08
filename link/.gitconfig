@@ -1,6 +1,7 @@
 [user]
   name = Simon Elvery
   signingkey = 1765C943BF0C1580
+	email = simon@elvery.net
 [core]
   autocrlf = input
   whitespace = fix,space-before-tab,tab-in-indent,trailing-space
