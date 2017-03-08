@@ -236,7 +236,7 @@ function or() {
   local repo branch host user branch_path remote get_remote
 
   if (( "${#@}" > 1 )); then
-    echo -e "Usage: hosted [remote]\n\tremote defaults to 'origin'"
+    echo -e "Usage: or [remote]\n\tremote defaults to 'origin'"
     return 1
   fi
 
