@@ -23,38 +23,28 @@ fi
 
 # Quick virtual environments
 venv(){
-  # Create
-  virtualenv .venv
-
-  # Setup for autoenv
-  echo "source .venv/bin/activate" >> .env
-
-  # Ignore some stuff
-  git ignore .env
-  git ignore .venv
-
-  # Activate it now
-  source .venv/bin/activate
-}
-
-# Quick Anaconda environment
-# Inspired by some things:
-# - https://github.com/tdhopper/dotfiles/blob/f319aca85d034488d2a37f43e2ee7c49c057cef6/bash_functions#L119-L139
-# - http://stiglerdiet.com/blog/2015/Nov/24/my-python-environment-workflow-with-conda/
-function cenv {
-
+  local re='^(2|3)$'
   local envname=$1
+  local version=`which python2`
+  if [[ $1 =~ $re ]] ; then
+    envname=$2
+    version=`which python$1`
+  fi
 
   if [[ ! $envname ]]; then
     echo "Defaulting to current directory for environment name"
     envname=$(basename $PWD);
   fi
 
-  # Setup for autoenv
-  echo "source activate $envname" >> .env
-  source activate "$envname"
-  if git status &> /dev/null; then git ignore .env; fi
+  # Create
+  mkvirtualenv -p "$version" "$envname"
 
-  # Export the environment
-  conda env export > environment.yml
+  # Setup for autoenv
+  echo "workon $envname" >> .env
+
+  # Ignore some stuff
+  git ignore .env
+
+  # Activate it now
+  workon "$envname"
 }

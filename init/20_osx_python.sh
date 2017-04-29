@@ -27,7 +27,8 @@ function python_install_packages() {
 
 # Install system python packages
 packages=(
-  
+  virtualenv
+  virtualenvwrapper
 )
 
 python_install_packages

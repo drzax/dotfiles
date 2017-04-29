@@ -23,6 +23,8 @@ recipes=(
   nmap
   pkg-config
   pngcrush
+  python
+  python3
   r
   scmpuff
   sl
