@@ -25,7 +25,7 @@ fi
 venv(){
   local re='^(2|3)$'
   local envname=$1
-  local version=`which python2`
+  local version=`which python3`
   if [[ $1 =~ $re ]] ; then
     envname=$2
     version=`which python$1`
