@@ -22,6 +22,7 @@ casks=(
   1password
   a-better-finder-rename
   alfred
+  arq
   atom
   charles
   chromium
