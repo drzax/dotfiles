@@ -21,18 +21,21 @@ casks=(
   1password
   atom
   a-better-finder-rename
+  awscli
   charles
   chromium
-  cloudup
+  coreutils
+  docker
+  docker-machine
+  docker-compose
   dropbox
   filezilla
   firefox
   hazel
   hermes
   iterm2
-  jumpcut
   licecap
-  omnidisksweeper
+  messenger-for-desktop
   rstudio
   sketchup
   skype

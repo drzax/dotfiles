@@ -1,3 +1,3 @@
-source $DOTFILES/source/50_ruby.sh
+source $DOTFILES/source/50_vcs.sh
 
 git lfs install

@@ -1,9 +1,11 @@
 # Load nave- and npm-related functions.
-source $DOTFILES/source/50_node.sh
+source $DOTFILES/source/50_node.sh init
 
 # Global npm modules to install.
 npm_globals=(
+  babel-cli
   bower
+  eslint
   forever
   grunt-cli
   grunt-init
