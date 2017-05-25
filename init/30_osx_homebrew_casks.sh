@@ -36,15 +36,17 @@ casks=(
   iterm2
   licecap
   messenger-for-desktop
+  nteract
+  openrefine-dev
   rstudio
   sketchup
   skype
   slack
   sourcetree
   spotify
+  tabula
   tilemill
   the-unarchiver
-  vagrant
   virtualbox
   vlc
   xquartz
