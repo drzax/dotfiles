@@ -21,13 +21,9 @@ casks=(
   1password
   atom
   a-better-finder-rename
-  awscli
   charles
   chromium
-  coreutils
   docker
-  docker-machine
-  docker-compose
   dropbox
   filezilla
   firefox
