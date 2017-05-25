@@ -15,7 +15,7 @@ function remove_versions() {
 # Install Python packages
 function python_install_packages() {
   local current
-  current=$(remove_versions "$(syspip list)")
+  current=$(remove_versions "$(syspip list --format=legacy)")
   packages=($(setdiff "${packages[*]}" "${current[*]}"))
   if (( ${#packages[@]} > 0 )); then
     e_header "Installing Python packages: ${packages[*]}"
