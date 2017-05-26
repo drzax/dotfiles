@@ -8,6 +8,7 @@ is_osx || return 1
 kegs=(
   caskroom/cask
   homebrew/science
+  homebrew/versions
   caskroom/fonts
 )
 brew_tap_kegs
@@ -19,26 +20,34 @@ brew cask info this-is-somewhat-annoying 2>/dev/null
 casks=(
   # Applications
   1password
-  atom
   a-better-finder-rename
+  alfred
+  atom
   charles
   chromium
   docker
   dropbox
+  endurance
   filezilla
   firefox
+  flux
+  gas-mask
   hazel
   hermes
   iterm2
+  keybase
   licecap
+  little-snitch
   messenger-for-desktop
   nteract
   openrefine-dev
   rstudio
+  shortcat
   sketchup
   skype
   slack
   sourcetree
+  spectacle
   spotify
   tabula
   tilemill
