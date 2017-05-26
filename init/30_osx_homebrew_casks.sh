@@ -8,7 +8,7 @@ is_osx || return 1
 kegs=(
   caskroom/cask
   homebrew/science
-  homebrew/versions
+  caskroom/versions
   caskroom/fonts
 )
 brew_tap_kegs
