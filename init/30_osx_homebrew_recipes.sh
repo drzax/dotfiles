@@ -19,7 +19,6 @@ recipes=(
   jq
   lesspipe
   man2html
-  ngrok
   nmap
   pkg-config
   pngcrush

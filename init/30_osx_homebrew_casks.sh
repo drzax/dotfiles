@@ -40,6 +40,7 @@ casks=(
   licecap
   little-snitch
   messenger-for-desktop
+  ngrok
   nteract
   openrefine-dev
   rstudio
