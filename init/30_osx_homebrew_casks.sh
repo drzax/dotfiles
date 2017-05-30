@@ -35,6 +35,7 @@ casks=(
   gas-mask
   hazel
   hermes
+  hipchat
   iterm2
   keybase
   licecap
