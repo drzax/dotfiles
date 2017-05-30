@@ -3,6 +3,7 @@ source $DOTFILES/source/50_node.sh init
 
 # Global npm modules to install.
 npm_globals=(
+  aunty
   babel-cli
   bower
   eslint
