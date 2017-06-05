@@ -629,9 +629,6 @@ defaults write com.apple.terminal StringEncodings -array 4
 # See: https://security.stackexchange.com/a/47786/8918
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
 ###############################################################################
 # Time Machine                                                                #
 ###############################################################################
