@@ -3,7 +3,7 @@ source $DOTFILES/source/50_node.sh init
 
 # Global npm modules to install.
 npm_globals=(
-  aunty
+  @abcnews/aunty
   babel-cli
   bower
   eslint
@@ -15,7 +15,6 @@ npm_globals=(
   licensor
   linken
   mocha
-  node-inspector
   tldr
   trash
   uglify-js

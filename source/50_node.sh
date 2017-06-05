@@ -38,12 +38,21 @@ function npm_run() {
   )
 }
 
+# This removes the version numbers and tree prefix from the `npm list -g --depth=0 --parseable` command output so it can be used as input for install.
+function remove_npm_cruft() {
+  local list out
+  list=(${1}) # Make a list
+  list=("${list[@]:1}") # Remove fist item
+  out=(${list[@]/"$(npm config get prefix)/lib/node_modules/"}) # remove path prefix
+  echo "${out[@]}"
+}
+
 # Update npm and install global modules.
 function npm_install() {
   local installed modules
   e_header "Updating npm"
   npm update -g npm
-  { pushd "$(npm config get prefix)/lib/node_modules"; installed=(*); popd; } >/dev/null
+  installed=$(remove_npm_cruft "$(npm list -g --depth=0 --parseable)")
   modules=($(setdiff "${npm_globals[*]}" "${installed[*]}"))
   if (( ${#modules[@]} > 0 )); then
     e_header "Installing Npm modules: ${modules[*]}"
