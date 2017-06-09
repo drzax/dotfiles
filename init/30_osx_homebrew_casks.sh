@@ -26,6 +26,7 @@ casks=(
   atom
   charles
   chromium
+  dash
   docker
   dropbox
   endurance
