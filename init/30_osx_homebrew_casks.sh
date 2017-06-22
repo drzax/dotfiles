@@ -24,6 +24,7 @@ casks=(
   alfred
   arq
   atom
+  base
   charles
   chromium
   dash
