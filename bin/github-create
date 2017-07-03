@@ -1,0 +1,108 @@
+#!/bin/bash
+
+package="github-create"
+
+# hash jq 2>/dev/null || { echo >&2 "Some functionality in this program requires 'jq'. Get it here: https://stedolan.github.io/jq/"; }
+
+# Gather vars
+while test $# -gt 0; do
+  case "$1" in
+    -h|--help)
+      echo "$package - create a new repo on github.com"
+      echo " "
+      echo "$package [options] [name]"
+      echo " "
+      echo "options:"
+      echo "-h, --help                show brief help"
+      echo "--org <organisation>      the organisation this repository should belong to"
+      echo "--token <token>           GitHub API token"
+      echo "--desc <description>      description for repo"
+      echo "-p, --private             make the repository private"
+      exit 0
+      ;;
+    --org*)
+      if [[ $1 =~ [.+=.+] ]]; then
+        ORG=`echo $1 | sed -e 's/^[^=]*=//g'`
+      else
+        shift
+        ORG=$1
+      fi
+      shift
+      ;;
+    --token*)
+      if [[ $1 =~ [.+=.+] ]]; then
+        TOKEN=`echo $1 | sed -e 's/^[^=]*=//g'`
+      else
+        shift
+        TOKEN=$1
+      fi
+      shift
+      ;;
+    --desc*)
+      if [[ $1 =~ [.+=.+] ]]; then
+        DESC=`echo $1 | sed -e 's/^[^=]*=//g'`
+      else
+        shift
+        DESC=$1
+      fi
+      shift
+      ;;
+    -p|--private)
+      PRIVATE=true
+      shift
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+REPO_NAME=${1:-`basename $(pwd)`}
+GIST_TOKEN=`cat ~/.gist`
+
+if [[ "$DESC" = "" ]]; then
+  echo -n "Enter description for your new repository: "
+  read DESC
+fi
+
+if [[ "$TOKEN" = "" ]]; then
+  echo "Enter API token ($GIST_TOKEN)"
+  read TOKEN
+fi
+
+
+
+if [[ $ORG ]]; then
+  ENDPOINT="orgs/$ORG/repos"
+else
+  ENDPOINT="user/repos"
+fi
+
+# Defaults
+TOKEN=${TOKEN:-$GIST_TOKEN}
+PRIVATE=${PRIVATE:-false}
+
+echo -n "Creating GitHub repository '$REPO_NAME' "
+if [[ $ORG ]]; then
+  echo -n "under the '$ORG' organisation "
+fi
+echo -n "... "
+
+# Curl some json to the github API oh damn we so fancy
+# TODO: add flags for issues, downloads, wiki, etc
+RESPONSE=`curl -H "Authorization: token $TOKEN" https://api.github.com/$ENDPOINT -d "{\"name\": \"$REPO_NAME\", \"description\": \"${DESCRIPTION}\", \"private\": $PRIVATE, \"has_issues\": true, \"has_downloads\": true, \"has_wiki\": false}" 2>/dev/null`
+
+if [[ "`echo $RESPONSE | jq '.errors'`" != "null"  ]]; then
+  echo "error."
+  echo $RESPONSE | jq '.'
+  exit 1
+fi
+
+echo "done."
+echo $RESPONSE | jq -r '.html_url'
+
+# TODO: add option for first push
+# echo -n "Pushing local code to remote ..."
+# git remote add origin git@github.com:$username/$repo_name.git > /dev/null 2>&1
+# git push -u origin master > /dev/null 2>&1
+# echo " done."
