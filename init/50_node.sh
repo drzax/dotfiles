@@ -12,6 +12,7 @@ npm_globals=(
   grunt-init
   hexo-cli
   karma-cli
+  @captainsafia/legit
   licensor
   linken
   mocha
