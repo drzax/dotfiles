@@ -22,6 +22,7 @@ casks=(
   1password
   a-better-finder-rename
   alfred
+  appcleaner
   arq
   atom
   base
