@@ -20,6 +20,7 @@ recipes=(
   jq
   lesspipe
   man2html
+  micro
   nmap
   pkg-config
   pngcrush

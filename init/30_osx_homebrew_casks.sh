@@ -43,7 +43,6 @@ casks=(
   keybase
   licecap
   little-snitch
-  macvim
   messenger-for-desktop
   ngrok
   nteract

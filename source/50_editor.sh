@@ -2,8 +2,8 @@
 
 if [[ ! "$SSH_TTY" ]] && is_osx; then
   export EDITOR='atom'
-  export LESSEDIT='mvim ?lm+%lm -- %f'
-  export GIT_EDITOR='mvim -f'
+  export LESSEDIT='micro'
+  export GIT_EDITOR='micro'
 else
   export EDITOR='vim'
 fi
