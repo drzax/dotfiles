@@ -21,6 +21,7 @@ npm_globals=(
   uglify-js
   yo
   generator-data-analysis
+  serve
 )
 
 # Install latest  Node.js, set as default, install global npm modules.
