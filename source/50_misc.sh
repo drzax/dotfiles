@@ -59,3 +59,5 @@ function pngcrushdir() {
 alias dkc=docker-compose
 alias dkm=docker-machine
 function dkmuse() { eval $(dkm env "${@:-default}"); } # Checkout master by default
+
+alias qunty='aunty'
