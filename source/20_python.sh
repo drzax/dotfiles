@@ -39,8 +39,8 @@ venv(){
   # Create
   mkvirtualenv -p "$version" "$envname"
 
-  # Setup for autoenv
-  echo "workon $envname" >> .env
+  # Setup for direnv
+  echo "workon $envname" >> .envrc
 
   # Ignore some stuff
   git ignore .env

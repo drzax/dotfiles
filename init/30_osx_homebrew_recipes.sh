@@ -6,9 +6,9 @@ is_osx || return 1
 
 # Homebrew recipes
 recipes=(
-  autoenv
   bash
   colordiff
+  direnv
   gist
   git
   git-extras
