@@ -20,3 +20,10 @@ function dotfiles() {
 
 src
 
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/elverys7d/.nave/installed/8.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash ] && . /Users/elverys7d/.nave/installed/8.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.bash
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/elverys7d/.nave/installed/8.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /Users/elverys7d/.nave/installed/8.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
