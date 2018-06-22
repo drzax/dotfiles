@@ -32,18 +32,19 @@ venv(){
   fi
 
   if [[ ! $envname ]]; then
-    echo "Defaulting to current directory for environment name"
     envname=$(basename $PWD);
+    echo "Defaulting to current directory ($envname) for environment name"
   fi
 
   # Create
   mkvirtualenv -p "$version" "$envname"
 
   # Setup for direnv
+  echo "" >> .envrc
   echo "workon $envname" >> .envrc
 
   # Ignore some stuff
-  git ignore .env
+  git ignore .envrc
 
   # Activate it now
   workon "$envname"
