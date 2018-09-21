@@ -12,17 +12,27 @@ apm config set python $(which python2.7)
 
 packages=(
   atom-fuzzy-grep
-  editor-stats
+  atom-import-cost
+  busy-signal
+  color-picker
   editorconfig
-  emmet
-  environment
+  es6-javascript
   fold-comments
+  git-blame
   highlight-selected
   hydrogen
-  linter
-  merge-conflicts
+  ide-flowtype
+  ide-typescript
+  language-lua
+  language-r
+  linter-eslint
+  prettier-atom
+  prettier-eslint
+  pretty-json
   sync-settings
+  tablr
   todo-show
+  wordcount
 )
 
 # This removes the version numbers from the output of `apm list --installed --bare`
