@@ -20,7 +20,6 @@ brew cask info this-is-somewhat-annoying 2>/dev/null
 casks=(
   # Applications
   1password
-  a-better-finder-rename
   alfred
   appcleaner
   arq
@@ -37,13 +36,10 @@ casks=(
   flux
   gas-mask
   hazel
-  hermes
-  hipchat
   iterm2
   keybase
   licecap
   little-snitch
-  messenger-for-desktop
   ngrok
   nteract
   openrefine-dev
@@ -52,11 +48,9 @@ casks=(
   sketchup
   skype
   slack
-  sourcetree
   spectacle
   spotify
   tabula
-  tilemill
   the-unarchiver
   virtualbox
   vlc
