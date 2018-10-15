@@ -1,6 +1,3 @@
-# Get or update all the grunt-init templates
-clone_or_pull ssh://git@ssh.stash.abc-dev.net.au:7999/news/template-interactive-gruntinit.git ~/.grunt-init/abc-interactive
-
 # ABC Proxyless
 clone_or_pull ssh://git@ssh.stash.abc-dev.net.au:7999/news/news-proxyless-util.git ~/proxyless
 
@@ -27,7 +24,6 @@ packages=(
   language-r
   linter-eslint
   prettier-atom
-  prettier-eslint
   pretty-json
   sync-settings
   tablr
