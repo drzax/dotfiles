@@ -1,5 +1,5 @@
 # Make sure scmpuff exists
-eval "$(scmpuff init -s)"
+eval "$(scmpuff init -s --aliases=false)"
 
 # Git shortcuts
 alias g='git'
@@ -10,9 +10,9 @@ alias gpa='gp --all'
 alias gu='git pull'
 alias gl='git log'
 alias gfe='git fetch -p'
-# alias gfep='git fetch -p'
+alias gfep='git fetch -p'
 alias gg='gl --decorate --oneline --graph --date-order --all'
-# alias gs='git status'
+alias gs='scmpuff_status'
 alias gd='git diff'
 alias gdc='gd --cached'
 alias gm='git commit -m'
@@ -25,7 +25,7 @@ alias gcb='gc -b'
 alias gbc='gc -b' # Dyslexia
 alias gr='git remote'
 alias grv='gr -v'
-#alias gra='git remote add'
+alias gra='git remote add'
 alias grr='git remote rm'
 alias gcl='git clone'
 alias gcd='git rev-parse 2>/dev/null && cd "./$(git rev-parse --show-cdup)"'
