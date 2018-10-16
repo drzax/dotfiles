@@ -15,11 +15,10 @@ if has('win32')
 else
   let s:uname = system("echo -n \"$(uname -s)\"")
   if s:uname == "Linux"
-    " My favorite font!
-    set guifont=M+\ 1m\ for\ Powerline\ 13
+    set guifont=Iosevka\ Term\ 12
   else " OSX
     " My favorite font!
-    set guifont=mplusForPowerline-1m-regular:h16
+    set guifont=M+\ 1m\ regular\ Nerd\ Font\ Complete:h16
 
     " Cmd-[, ]: Buffer Navigation
     nmap <D-[> :bprev<CR>

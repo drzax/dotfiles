@@ -8,6 +8,7 @@ is_osx || return 1
 recipes=(
   bash
   colordiff
+  coreutils
   direnv
   gist
   git

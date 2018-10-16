@@ -7,7 +7,7 @@ function tm() {
     # Clean up any orphaned "no logout" file.
     [[ -e $tmux_no_logout ]] && rm $tmux_no_logout
     # Actually start tmux.
-    tmux ls >/dev/null && tmux attach "$@" || tmux "$@"
+    tmux ls >/dev/null 2>&1 && tmux attach "$@" || tmux "$@"
     # If "no logout" doesn't exist, exit.
     [[ -e $tmux_no_logout ]] && rm $tmux_no_logout || exit
   elif [[ ! "$is_source" ]]; then
@@ -37,7 +37,7 @@ function run_in_fresh_tmux_window() {
 # Usage: qq [num-panes] [working-directory] [...other-args]
 function qq() {
   local panes=1; [[ "$1" =~ ^[0-9]+$ ]] && panes=$1 && shift
-  local dir="$PWD"; [[ -d "$1" ]] && dir="$1" && shift
+  local dir="$PWD"; [[ -d "$1" ]] && dir="$(cd "$1" && pwd)" && shift
   local win=$(tmux new-window -P -a -c "$dir" -n "$(basename "$dir")")
   n_times $panes tmux split-window -t $win -c "$dir"
   tmux select-layout -t $win main-vertical

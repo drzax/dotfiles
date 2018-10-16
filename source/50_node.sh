@@ -26,6 +26,32 @@ function nave_install() {
   [[ "$1" == "stable" ]] && nave_default stable && npm_install
 }
 
+# Use the version of node in the local .nvmrc file
+alias nvmrc='exec nave use $(<.nvmrc)'
+
+# Global npm modules to install.
+npm_globals=(
+  @abcnews/aunty
+  babel-cli
+  bower
+  eslint
+  forever
+  grunt-cli
+  grunt-init
+  hexo-cli
+  karma-cli
+  @captainsafia/legit
+  licensor
+  linken
+  mocha
+  tldr
+  trash
+  uglify-js
+  yo
+  generator-data-analysis
+  serve
+)
+
 # Because "rm -rf node_modules && npm install" takes WAY too long. Not sure
 # if this really works as well, though. We'll see.
 alias npm_up='npm prune && npm install && npm update'

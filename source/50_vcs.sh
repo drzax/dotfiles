@@ -4,8 +4,9 @@ eval "$(scmpuff init -s --aliases=false)"
 # Git shortcuts
 alias g='git'
 unalias ga > /dev/null 2>&1
-function ga() { echo "$(git add "${@:-.}")"; } # Add all files by default
-alias gp='pushToOrigin'
+function ga() { git add "${@:-.}"; } # Add all files by default
+alias gp='git push'
+alias gpup='gp --set-upstream origin $(gbs)'
 alias gpa='gp --all'
 alias gu='git pull'
 alias gl='git log'
@@ -86,7 +87,9 @@ function _grbo_err() {
 # open all changed files (that still actually exist) in the editor
 function ged() {
   local files
+  local _IFS="$IFS"
   IFS=$'\n' files=($(git diff --name-status "$@" | grep -v '^D' | cut -f2 | sort | uniq))
+  IFS="$_IFS"
   echo "Opening files modified $([[ "$2" ]] && echo "between $1 and $2" || echo "since $1")"
   gcd
   q "${files[@]}"
