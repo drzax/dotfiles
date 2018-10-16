@@ -21,6 +21,7 @@ recipes=(
   lesspipe
   man2html
   micro
+  nave
   nmap
   pkg-config
   pngcrush
