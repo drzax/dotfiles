@@ -1,9 +1,6 @@
 [submodule "rbenv"]
   path = vendor/rbenv
   url = https://github.com/sstephenson/rbenv.git
-[submodule "git-extras"]
-  path = vendor/git-extras
-  url = https://github.com/visionmedia/git-extras.git
 [submodule "z"]
   path = vendor/z
   url = https://github.com/rupa/z.git
