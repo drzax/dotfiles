@@ -27,3 +27,6 @@ src
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [ -f /Users/elverys7d/.nave/installed/8.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash ] && . /Users/elverys7d/.nave/installed/8.2.1/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.bash
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[ -f /Users/elverys7d/.nave/installed/10.15.1/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash ] && . /Users/elverys7d/.nave/installed/10.15.1/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.bash
