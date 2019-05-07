@@ -106,8 +106,8 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Try e.g. `cd /tmp; unidecode "\x{0000}" > cc.txt; open -e cc.txt`
 defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
 
-# Disable Resume system-wide
-defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool false
+# Enable Resume system-wide
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -bool true
 
 # Disable automatic termination of inactive apps
 defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
@@ -630,6 +630,10 @@ defaults write com.apple.terminal StringEncodings -array 4
 # Enable Secure Keyboard Entry in Terminal.app
 # See: https://security.stackexchange.com/a/47786/8918
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
+
+# Iterm session management
+defaults write com.googlecode.iterm2 KillJobsInServersOnQuit -bool false
+defaults write com.googlecode.iterm2 OnlyWhenMoreTabs -bool false
 
 ###############################################################################
 # Time Machine                                                                #
