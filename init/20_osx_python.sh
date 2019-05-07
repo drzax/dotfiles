@@ -8,14 +8,14 @@ source $DOTFILES/source/20_python.sh
 function remove_versions() {
   local list out
   list=($1)
-  out=(${list[@]//(*})
-  echo "${out[@]}"
+  out=(${list[@]//[0-9-]*/})
+  echo "${out[@]:2}"
 }
 
 # Install Python packages
 function python_install_packages() {
   local current
-  current=$(remove_versions "$(syspip list --format=legacy)")
+  current=$(remove_versions "$(syspip list)")
   packages=($(setdiff "${packages[*]}" "${current[*]}"))
   if (( ${#packages[@]} > 0 )); then
     e_header "Installing Python packages: ${packages[*]}"
