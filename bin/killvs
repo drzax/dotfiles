@@ -1,3 +1,0 @@
-sudo /usr/local/McAfee/AntiMalware/VSControl stopoas
-sudo killall VShieldService
-sudo killall VShieldScanner
