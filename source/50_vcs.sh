@@ -199,40 +199,6 @@ function gstat() {
   unset IFS
 }
 
-# OSX-specific Git shortcuts
-if is_osx; then
-  alias gdk='git ksdiff'
-  alias gdkc='gdk --cached'
-  function gt() {
-    local path repo
-    {
-      pushd "${1:-$PWD}"
-      path="$PWD"
-      repo="$(git rev-parse --show-toplevel)"
-      popd
-    } >/dev/null 2>&1
-    if [[ -e "$repo" ]]; then
-      echo "Opening git repo $repo."
-      gittower "$repo"
-    else
-      echo "Error: $path is not a git repo."
-    fi
-  }
-fi
-
-# Open source tree
-function st() {
-  if [[ ! $1 ]]; then
-    if [ -d .git ]; then
-      open -a SourceTree .
-    else
-      open -a SourceTree
-    fi
-  else
-    open -a SourceTree $1
-  fi
-}
-
 # Open this repository / branch on a hosted remote (default to origin)
 function or() {
 
