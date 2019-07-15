@@ -32,7 +32,7 @@ file="$cache_dir/${2:+$2.}$1.html"
 [[ ! -e "$file" ]] && man "$@" >/dev/null && cat > "$file" <<EOF
 <!doctype html>
 <html>
-<link rel="stylesheet" href="../../conf/manh/styles.css">
+<link rel="stylesheet" href="../../config/manh/styles.css">
 <body>
 $(MANWIDTH=120 man "$@" 2>/dev/null | man2html -bare -nodepage)
 </body>
