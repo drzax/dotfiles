@@ -8,7 +8,6 @@ for pip_cmd in pip2 pip FAIL; do [[ "$(which $pip_cmd)" ]] && break; done
 pip_packages=(
   netifaces
   psutil
-  tmuxp
 )
 
 installed_pip_packages="$($pip_cmd list 2>/dev/null | awk '{print $1}')"
