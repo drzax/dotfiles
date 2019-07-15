@@ -30,18 +30,15 @@ casks=(
   dash
   docker
   dropbox
-  endurance
   filezilla
   firefox
+  firefox-developer-edition
   flux
-  gas-mask
   hazel
   iterm2
   keybase
   licecap
   little-snitch
-  ngrok
-  nteract
   openrefine-dev
   rstudio
   shortcat

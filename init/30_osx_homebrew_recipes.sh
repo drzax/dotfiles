@@ -26,7 +26,6 @@ recipes=(
   nmap
   pkg-config
   pngcrush
-  python
   python3
   r
   scmpuff
@@ -38,7 +37,6 @@ recipes=(
   trash
   tree
   wget
-  zeromq
 )
 
 brew_install_recipes
