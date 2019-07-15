@@ -3,8 +3,6 @@ set go-=r " Hide right scrollbar
 set go-=L " Hide left scrollbar
 
 if has('win32')
-  " My favorite font!
-  set guifont=M+_1m_for_Powerline:h12
 
   " Alt-[, ]: Buffer Navigation
   nmap <M-[> :bprev<CR>

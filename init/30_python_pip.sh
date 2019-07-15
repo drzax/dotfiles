@@ -7,7 +7,6 @@ for pip_cmd in pip2 pip FAIL; do [[ "$(which $pip_cmd)" ]] && break; done
 # Add pip packages
 pip_packages=(
   netifaces
-  powerline-status
   psutil
   tmuxp
 )
