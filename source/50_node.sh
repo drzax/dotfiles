@@ -32,24 +32,22 @@ alias nvmrc='exec nave use $(<.nvmrc)'
 # Global npm modules to install.
 npm_globals=(
   @abcnews/aunty
+  @captainsafia/legit
   babel-cli
   bower
   eslint
-  forever
+  generator-data-analysis
   grunt-cli
   grunt-init
   hexo-cli
-  karma-cli
-  @captainsafia/legit
   licensor
   linken
-  mocha
+  serve
+  serverless
   tldr
   trash
-  uglify-js
+  uuid
   yo
-  generator-data-analysis
-  serve
 )
 
 # Because "rm -rf node_modules && npm install" takes WAY too long. Not sure
