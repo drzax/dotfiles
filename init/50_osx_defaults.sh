@@ -313,9 +313,19 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 80" ~/Library/Preferences/com.apple.finder.plist
 
-# Use list view in all Finder windows by default
-# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+# Make the default grouping in finder "Modified Date"
+# All of this is commented out because it doesn't seem to do anything.
+# See: https://apple.stackexchange.com/questions/309702/set-default-finder-view-and-arrange-by-options#311186
+# /usr/libexec/PlistBuddy -c "Set :\"FK_StandardViewOptions2\":ColumnViewOptions:ArrangeBy string \"Modified Date\"" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :StandardViewOptions:ColumnViewOptions:ArrangeBy string \"Modified Date\"" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :\"FK_StandardViewOptions2\":ColumnViewOptions:SharedArrangeBy string \"Modified Date\"" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :StandardViewOptions:ColumnViewOptions:SharedArrangeBy string \"Modified Date\"" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :FK_ArrangeBy string \"Date Modified\"" ~/Library/Preferences/com.apple.finder.plist
+# /usr/libexec/PlistBuddy -c "Set :FXPreferredGroupBy string \"Date Modified\"" ~/Library/Preferences/com.apple.finder.plist
+
+# Use column view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, 'Nlsv'
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
