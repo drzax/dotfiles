@@ -2,45 +2,40 @@
 is_osx || return 1
 
 # Exit if Homebrew is not installed.
-[[ ! "$(type -P brew)" ]] && e_error "Brew recipes need Homebrew to install." && return 1
+[[ ! "$(type -P mas)" ]] && e_error "The 'mas' cli tool is required to install Mac App Store apps from here." && return 1
 
 # Homebrew recipes
-recipes=(
-  bash
-  colordiff
-  coreutils
-  direnv
-  gist
-  git
-  git-extras
-  git-lfs
-  gnupg
-  htop-osx
-  hub
-  id3tool
-  jq
-  lesspipe
-  man2html
-  mas
-  micro
-  nave
-  nmap
-  pkg-config
-  pngcrush
-  python3
-  r
-  scmpuff
-  sl
-  ssh-copy-id
-  terminal-notifier
-  the_silver_searcher
-  todo-txt
-  trash
-  tree
-  wget
+apps=(
+1278508951 # Trello (2.10.13)
+497799835 # Xcode (10.2.1)
+1091189122 # Bear (1.6.15)
+557168941 # Tweetbot (2.5.8)
+1147396723 # WhatsApp (0.3.3328)
+889428659 # xScope (4.3.3)
 )
 
-brew_install_recipes
+# This removes the version numbers and text description leaving only ids.
+function remove_mas_cruft() {
+  local list out
+  list=(${1}) # Make a list
+  out=(${list[@]/"\s.*"}) # remove path prefix
+  echo "${out[@]}"
+}
+
+# Install Homebrew recipes.
+function mas_install_apps() {
+  local installed required
+  installed=$(remove_mas_cruft "$(mas list)")
+  required=($(setdiff "${apps[*]}" "${installed[*]}"))
+  if (( ${#required[@]} > 0 )); then
+    e_header "Installing Mac App Store apps: ${required[*]}"
+    for app in "${required[@]}"; do
+      mas install $app
+    done
+  fi
+}
+
+mas_install_apps
 
 # Misc cleanup!
 
