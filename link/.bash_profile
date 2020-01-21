@@ -17,3 +17,6 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 bind '"\eOA": history-search-backward'
 bind '"\eOB": history-search-forward'
+
+# Make GPG work...I don't know why this is necessary
+export GPG_TTY=$(tty)
