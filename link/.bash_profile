@@ -10,3 +10,10 @@ export PATH=/Developer/NVIDIA/CUDA-7.0/bin:$PATH
 export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-7.0/lib:$DYLD_LIBRARY_PATH
 
 eval "$(direnv hook bash)"
+
+# Key bindings, up/down arrow searches through history
+# https://stackoverflow.com/questions/41780746/searching-your-command-history-on-macos-terminal
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind '"\eOA": history-search-backward'
+bind '"\eOB": history-search-forward'
