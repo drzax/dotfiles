@@ -7,7 +7,6 @@ is_osx || return 1
 # Ensure the cask keg and recipe are installed.
 kegs=(
   caskroom/cask
-  homebrew/science
   caskroom/versions
   caskroom/fonts
 )
@@ -30,7 +29,6 @@ casks=(
   dash
   docker
   dropbox
-  filezilla
   firefox
   firefox-developer-edition
   flux
@@ -39,7 +37,7 @@ casks=(
   keybase
   licecap
   little-snitch
-  openrefine-dev
+  openrefine
   rstudio
   shortcat
   sketchup
@@ -49,11 +47,8 @@ casks=(
   spotify
   tabula
   the-unarchiver
-  virtualbox
   vlc
-  xquartz
   # Quick Look plugins
-  betterzipql
   qlcolorcode
   qlmarkdown
   qlprettypatch
