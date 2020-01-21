@@ -12,7 +12,7 @@ alias c="tr -d '\n' | pbcopy"
 [[ "$(type -P lesspipe.sh)" ]] && eval "$(lesspipe.sh)"
 
 # Make using todo.sh a little easier
-alias t="todo.sh -@"
+alias todo="todo.sh -@"
 alias ta="t a"
 alias td="t do"
 alias tq="q ~/Dropbox/todo/todo.txt"
