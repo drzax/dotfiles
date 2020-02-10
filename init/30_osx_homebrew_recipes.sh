@@ -27,8 +27,8 @@ recipes=(
   nmap
   pkg-config
   pngcrush
-  python3
-  r
+  python@2 # this gives us pip and (I think) gives us a more up-to-date version in place of system python
+  python # now version 3 by default
   scmpuff
   sl
   ssh-copy-id
