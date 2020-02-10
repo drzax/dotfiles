@@ -1,10 +1,10 @@
 # OSX-only stuff. Abort if not OSX.
 is_osx || return 1
 
-# Exit if Homebrew is not installed.
+# Exit if mas is not installed.
 [[ ! "$(type -P mas)" ]] && e_error "The 'mas' cli tool is required to install Mac App Store apps from here." && return 1
 
-# Homebrew recipes
+# mas app ids
 apps=(
 1278508951 # Trello (2.10.13)
 497799835 # Xcode (10.2.1)
@@ -22,7 +22,7 @@ function remove_mas_cruft() {
   echo "${out[@]}"
 }
 
-# Install Homebrew recipes.
+# Install apps.
 function mas_install_apps() {
   local installed required
   installed=$(remove_mas_cruft "$(mas list)")
@@ -36,26 +36,3 @@ function mas_install_apps() {
 }
 
 mas_install_apps
-
-# Misc cleanup!
-
-# This is where brew stores its binary symlinks
-local binroot="$(brew --config | awk '/HOMEBREW_PREFIX/ {print $2}')"/bin
-
-# htop
-if [[ "$(type -P $binroot/htop)" ]] && [[ "$(stat -L -f "%Su:%Sg" "$binroot/htop")" != "root:wheel" || ! "$(($(stat -L -f "%DMp" "$binroot/htop") & 4))" ]]; then
-  e_header "Updating htop permissions"
-  sudo chown root:wheel "$binroot/htop"
-  sudo chmod u+s "$binroot/htop"
-fi
-
-# bash
-if [[ "$(type -P $binroot/bash)" && "$(cat /etc/shells | grep -q "$binroot/bash")" ]]; then
-  e_header "Adding $binroot/bash to the list of acceptable shells"
-  echo "$binroot/bash" | sudo tee -a /etc/shells >/dev/null
-fi
-if [[ "$(dscl . -read ~ UserShell | awk '{print $2}')" != "$binroot/bash" ]]; then
-  e_header "Making $binroot/bash your default shell"
-  sudo chsh -s "$binroot/bash" "$USER" >/dev/null 2>&1
-  e_arrow "Please exit and restart all your shells."
-fi
